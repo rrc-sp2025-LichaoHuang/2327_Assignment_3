@@ -58,3 +58,13 @@ Level 1: The player chooses a task:
                 The player delivers the squirrel to the police and earns a reward. Player can choose to try again.
 
 Restart Option: At the end of any path, the player can select "Try Again?" to restart the game from Level 0.
+
+
+Description of Coding Process:
+    This time, the programming time was split into several sessions, so my thinking process wasn't continuous. I should try to find a full block of time for programming next time. The CSS and HTML programming process was relatively quick and familiar, while the JS process required more thinking and took the most time.
+
+Discussion of Challenges Faced：
+    When I finished level 1 and tried to advance to level 2, the console reported an error, so I debugged it and found that it was because I removed the previous buttons and appended new ones. Therefore, I could only put all subsequent event listeners into the first event listener to make the program run.
+
+Consideration of Improvements：
+    Next time, maybe you can try to use function to make the code more reusable, so you don’t have to write a long string of similar code every time.
