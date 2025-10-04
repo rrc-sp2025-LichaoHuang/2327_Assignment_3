@@ -18,48 +18,50 @@ body {
 }
 
 h1 {
+    font-family: "Rubik Moonrocks";
     margin-bottom: 20px;
-    color: #333;
+    color: #007ed7; 
 }
 
 #question {
+    font-family: "Irish Grover";
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-#answers {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
+#missionButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+
 }
 
-#answers li {
-    margin: 10px 0;
-}
-
-#answers button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #4CAF50;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#next-btn {
+#missionButton button {
+    font-family: "Irish Grover";
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background: #2196F3;
+    background-color: #6a6a6a;
     color: white;
     font-size: 16px;
-    transition: transform 0.3s;
+    cursor: pointer;
+    transition: transform 0.5s;
 }
 
-#next-btn:hover {
-    background: #1976D2;
+#missionButton button:hover {
     transform: scale(1.2);
+}
+
+.gold {
+    color: gold;
+    font-weight: bold;
+}
+
+#missionButton #redMission {
+    background-color: #cb0000;
+}
+
+#missionButton #blueMission {
+    background-color: #1d54cb;
 }
