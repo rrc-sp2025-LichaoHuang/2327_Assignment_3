@@ -4,11 +4,12 @@
     Info: This is an Adventure game
 */
 
-
+// Get the game title element and set its initial text for level 0
 const adventureTitleID = document.getElementById("title");
 let adventureLevelZeroTitle = "Are you ready for Adventure?";
 adventureTitleID.textContent = adventureLevelZeroTitle;
 
+// Get the question element and set its initial text for level 0
 const adventureQuestionID = document.getElementById("question");
 let questionLevelZeroQuestion = "Press the button to start the adventure";
 adventureQuestionID.textContent = questionLevelZeroQuestion;
@@ -39,38 +40,44 @@ let questionLevelThreeArrestQuestion = `You accidentally caught a fugitive.
 You effortlessly delivered the sleeping squirrel to the police station. 
 The sheriff praised your insight and offered you a reward of thirty gold coins.`
 
-
+// Get important DOM elements
 const buttonGoID = document.getElementById("next-btn")
 const gameContainer = document.getElementById("game-container");
 const missionButton = document.getElementById("missionButton");
-
+// Level 1 select Task
 buttonGoID.addEventListener("click", () => {
     
+    // Update the title and question text to show level 1 content
     adventureTitleID.textContent = adventureLevelOneTitle;
     adventureQuestionID.textContent = questionLevelOneQuestion;
     
+    // Create new buttons for the missions and the "Try Again" option
     const redMission = document.createElement("button");
     const blueMission = document.createElement("button");
     const again = document.createElement("button");
     
+    // Set the text labels for each button
     redMission.textContent = "Crystal Collection";
     blueMission.textContent = "Gathering acorns";
     again.textContent = "Try Again?"
     
+    // Assign unique IDs to each button for later reference
     redMission.id = "redMission";
     blueMission.id = "blueMission";
     again.id = "again"
     
+    // Add the red and blue mission buttons in the DOM
     missionButton.appendChild(redMission);
     missionButton.appendChild(blueMission);
 
+    // Get references to the newly added mission buttons for later use
     const buttonRedMissionID = document.getElementById("redMission")
     const buttonBlueMissionID = document.getElementById("blueMission")
     
-    
+    // Remove the "Go!" button from the DOM since it is going to the next level.
     buttonGoID.remove();
 
-    // redMission
+    // Level 2 Red Mission
     buttonRedMissionID.addEventListener("click", () =>{
         adventureTitleID.textContent = adventureLevelTwoRedTitle;
         adventureQuestionID.textContent = questionLevelTwoRedQuestion;
@@ -92,7 +99,7 @@ buttonGoID.addEventListener("click", () => {
 
         buttonRedMissionID.remove()
         buttonBlueMissionID.remove()
-        // Cave
+        // Level 3 Cave
         buttonCaveID.addEventListener("click", () =>{
             adventureTitleID.textContent = adventureLevelThreeTitle;
             adventureQuestionID.textContent = questionLevelThreeRCaveQuestion;
@@ -108,7 +115,7 @@ buttonGoID.addEventListener("click", () => {
             })
         })
 
-        // GlassFactory
+        // Level 3 GlassFactory
         buttonGlassFactoryID.addEventListener("click", () =>{
             adventureTitleID.textContent = adventureLevelThreeTitle;
             adventureQuestionID.textContent = questionLevelThreeGlassFactoryQuestion;
@@ -124,7 +131,7 @@ buttonGoID.addEventListener("click", () => {
             })
         })
     })
-
+    // Level 2 Blue Mission
     buttonBlueMissionID.addEventListener("click", () =>{
         adventureTitleID.textContent = adventureLevelTwoBlueTitle;
         adventureQuestionID.textContent = questionLevelTwoBlueQuestion;
@@ -142,7 +149,7 @@ buttonGoID.addEventListener("click", () => {
         buttonRedMissionID.remove()
         buttonBlueMissionID.remove()
 
-        // arrest 
+        // Level 3 arrest 
         buttonArrestID.addEventListener("click", () =>{
             adventureTitleID.textContent = adventureLevelThreeBlueTitle;
             adventureQuestionID.textContent = questionLevelThreeArrestQuestion;
@@ -157,30 +164,37 @@ buttonGoID.addEventListener("click", () => {
         })
     })
 
-    redMission.addEventListener("mouseenter", () => {
-        const tempText = adventureQuestionID.innerHTML; // 保存悬停前的文本
+    /* The following code adds an effect to the task button. 
+    When the mouse moves over the button, the task details 
+    are displayed on the main interface. When the mouse moves 
+    away, the original information is displayed. 
+    The gold coin is also highlighted to make it more "golden". */
 
+    // red  button hover 
+    redMission.addEventListener("mouseenter", () => {
+        // Save the text before hover
+        const tempText = adventureQuestionID.innerHTML;
+        // Modify the displayed text
         adventureQuestionID.innerHTML = `A husband wants you to find him a crystal as a 
         gift for his wife for their wedding anniversary.<br>
         He is willing to pay you <span class="gold">three gold coins</span>.`;
-
-        redMission.addEventListener("mouseleave", function leaveHandler() {
-            adventureQuestionID.innerHTML = tempText; // 恢复悬停前的文本
-            redMission.removeEventListener("mouseleave", leaveHandler);
-        });
+    
+    redMission.addEventListener("mouseleave", function leaveHandler() {
+        // Restore the text before hover
+        adventureQuestionID.innerHTML = tempText;
+    });
     });
 
-    // 蓝色按钮悬停显示
+    // Blue button hover 
     blueMission.addEventListener("mouseenter", () => {
-        const tempText = adventureQuestionID.innerHTML; // 保存悬停前的文本
+        const tempText = adventureQuestionID.innerHTML;
         adventureQuestionID.innerHTML = `A drunk squirrel takes out 
         <span class="gold">two gold coins </span>
         and asks you to go to the woods to collect acorns for the winter.<br>
          Then he falls drunkenly on the table and starts snoring.`;
 
         blueMission.addEventListener("mouseleave", function leaveHandler() {
-            adventureQuestionID.innerHTML = tempText; // 恢复悬停前的文本
-            blueMission.removeEventListener("mouseleave", leaveHandler);
+            adventureQuestionID.innerHTML = tempText;
         });
     });
 
