@@ -21,6 +21,10 @@ With your current reputation, you can only choose two simple tasks.`;
 let adventureLevelTwoRedTitle = "Adventure Quest: Finding the Crystal";
 let questionLevelTwoRedQuestion = `You decide to help the man find the crystal. 
 But where to find it?`;
+let adventureLevelTwoBlueTitle = "Discover the criminal"
+let questionLevelTwoBlueQuestion = `As you were about to leave to collect acorns
+ for the squirrel, you discovered a scar on his neck, which revealed that the 
+ squirrel was the fugitive robber from the Acorn Bank case.`
 
 // level 3 text
 let adventureLevelThreeTitle = "Mission accomplished!"
@@ -62,7 +66,7 @@ buttonGoID.addEventListener("click", () => {
     
     buttonGoID.remove();
 
-    // redMission点击
+    // redMission
     buttonRedMissionID.addEventListener("click", () =>{
         adventureTitleID.textContent = adventureLevelTwoRedTitle;
         adventureQuestionID.textContent = questionLevelTwoRedQuestion;
@@ -84,7 +88,7 @@ buttonGoID.addEventListener("click", () => {
 
         buttonRedMissionID.remove()
         buttonBlueMissionID.remove()
-        // Cave点击
+        // Cave
         buttonCaveID.addEventListener("click", () =>{
             adventureTitleID.textContent = adventureLevelThreeTitle;
             adventureQuestionID.textContent = questionLevelThreeRCaveQuestion;
@@ -100,7 +104,7 @@ buttonGoID.addEventListener("click", () => {
             })
         })
 
-
+        // GlassFactory
         buttonGlassFactoryID.addEventListener("click", () =>{
             adventureTitleID.textContent = adventureLevelThreeTitle;
             adventureQuestionID.textContent = questionLevelThreeGlassFactoryQuestion;
@@ -115,6 +119,24 @@ buttonGoID.addEventListener("click", () => {
                 location.reload();
             })
         })
+    })
+
+    buttonBlueMissionID.addEventListener("click", () =>{
+        adventureTitleID.textContent = adventureLevelTwoBlueTitle;
+        adventureQuestionID.textContent = questionLevelTwoBlueQuestion;
+
+        const arrest = document.createElement("button");
+
+        arrest.textContent = "Arrest Him!"
+
+        arrest.id = "arrest"
+
+        missionButton.appendChild(arrest);
+
+        buttonRedMissionID.remove()
+        buttonBlueMissionID.remove()
+        
+        
     })
 
     redMission.addEventListener("mouseenter", () => {
