@@ -102,8 +102,8 @@ buttonGoID.addEventListener("click", () => {
 
 
         buttonGlassFactoryID.addEventListener("click", () =>{
-             adventureTitleID.textContent = adventureLevelThreeTitle;
-            // adventureQuestionID.textContent = ;
+            adventureTitleID.textContent = adventureLevelThreeTitle;
+            adventureQuestionID.textContent = questionLevelThreeGlassFactoryQuestion;
 
             missionButton.appendChild(again);
             const buttonAgainID = document.getElementById("again")
