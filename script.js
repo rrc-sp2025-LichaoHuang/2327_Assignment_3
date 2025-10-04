@@ -1,6 +1,6 @@
 /*
     Name:Lichao Huang
-    Date: September 23, 2025
+    Date: October 1, 2025
     Info: This is an Adventure game
 */
 
@@ -13,10 +13,24 @@ const adventureQuestionID = document.getElementById("question");
 let questionLevelZeroQuestion = "Press the button to start the adventure";
 adventureQuestionID.textContent = questionLevelZeroQuestion;
 
-
+// level 1 text
 let adventureLevelOneTitle = "Take on adventure missions"
 let questionLevelOneQuestion = `You walked into the tavern. 
 With your current reputation, you can only choose two simple tasks.`;
+// level 2 text
+let adventureLevelTwoRedTitle = "Adventure Quest: Finding the Crystal";
+let questionLevelTwoRedQuestion = `You decide to help the man find the crystal. 
+But where to find it?`;
+
+// level 3 text
+let adventureLevelThreeTitle = "Mission accomplished!"
+let questionLevelThreeRCaveQuestion = `The crystal you found is worth at least 
+three thousand gold coins. But you were only paid three gold coins. 
+Fortunately, you didn't know this.`
+let questionLevelThreeGlassFactoryQuestion = `You used glass instead of crystal 
+to complete the task and received gold coins as a reward, but he will find your 
+"glass crystal" sooner or later. Now, leave this town and don't come back.`
+
 
 const buttonGoID = document.getElementById("next-btn")
 const gameContainer = document.getElementById("game-container");
@@ -29,17 +43,79 @@ buttonGoID.addEventListener("click", () => {
     
     const redMission = document.createElement("button");
     const blueMission = document.createElement("button");
+    const again = document.createElement("button");
     
     redMission.textContent = "Crystal Collection";
     blueMission.textContent = "Gathering acorns";
+    again.textContent = "Try Again?"
     
     redMission.id = "redMission";
     blueMission.id = "blueMission";
+    again.id = "again"
     
     missionButton.appendChild(redMission);
     missionButton.appendChild(blueMission);
+
+    const buttonRedMissionID = document.getElementById("redMission")
+    const buttonBlueMissionID = document.getElementById("blueMission")
+    
     
     buttonGoID.remove();
+
+    // redMission点击
+    buttonRedMissionID.addEventListener("click", () =>{
+        adventureTitleID.textContent = adventureLevelTwoRedTitle;
+        adventureQuestionID.textContent = questionLevelTwoRedQuestion;
+
+        const cave = document.createElement("button");
+        const glassFactory = document.createElement("button");
+
+        cave.textContent = "Cave";
+        glassFactory.textContent = "Glass Factory";
+
+        cave.id = "cave";
+        glassFactory.id = "glassFactory";
+        
+        missionButton.appendChild(cave);
+        missionButton.appendChild(glassFactory);
+
+        const buttonCaveID = document.getElementById("cave")
+        const buttonGlassFactoryID = document.getElementById("glassFactory")
+
+        buttonRedMissionID.remove()
+        buttonBlueMissionID.remove()
+        // Cave点击
+        buttonCaveID.addEventListener("click", () =>{
+            adventureTitleID.textContent = adventureLevelThreeTitle;
+            adventureQuestionID.textContent = questionLevelThreeRCaveQuestion;
+
+            missionButton.appendChild(again);
+            const buttonAgainID = document.getElementById("again")
+
+            buttonCaveID.remove();
+            buttonGlassFactoryID.remove();
+
+            buttonAgainID.addEventListener("click", () =>{
+                location.reload();
+            })
+        })
+
+
+        buttonGlassFactoryID.addEventListener("click", () =>{
+             adventureTitleID.textContent = adventureLevelThreeTitle;
+            // adventureQuestionID.textContent = ;
+
+            missionButton.appendChild(again);
+            const buttonAgainID = document.getElementById("again")
+
+            buttonCaveID.remove();
+            buttonGlassFactoryID.remove();
+
+            buttonAgainID.addEventListener("click", () =>{
+                location.reload();
+            })
+        })
+    })
 
     redMission.addEventListener("mouseenter", () => {
         const tempText = adventureQuestionID.innerHTML; // 保存悬停前的文本
@@ -69,6 +145,9 @@ buttonGoID.addEventListener("click", () => {
     });
 
 })
+
+
+
 
 
 
