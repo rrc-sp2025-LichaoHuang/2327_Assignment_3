@@ -65,3 +65,20 @@ h1 {
 #missionButton #blueMission {
     background-color: #1d54cb;
 }
+
+#missionButton #cave {
+    background-color: #252c3b;
+}
+
+#missionButton #glassFactory {
+    background-color: #94dcd8;
+    color: #252c3b;
+}
+
+#missionButton #arrest {
+    background-color: #ff0000;
+}
+
+#missionButton #again {
+    background-color: #048000;
+}
