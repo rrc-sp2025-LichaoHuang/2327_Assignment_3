@@ -34,6 +34,10 @@ Fortunately, you didn't know this.`
 let questionLevelThreeGlassFactoryQuestion = `You used glass instead of crystal 
 to complete the task and received gold coins as a reward, but he will find your 
 "glass crystal" sooner or later. Now, leave this town and don't come back.`
+let adventureLevelThreeBlueTitle = "Justice Bounty Hunter"
+let questionLevelThreeArrestQuestion = `You accidentally caught a fugitive. 
+You effortlessly delivered the sleeping squirrel to the police station. 
+The sheriff praised your insight and offered you a reward of thirty gold coins.`
 
 
 const buttonGoID = document.getElementById("next-btn")
@@ -133,10 +137,24 @@ buttonGoID.addEventListener("click", () => {
 
         missionButton.appendChild(arrest);
 
+        const buttonArrestID = document.getElementById("arrest")
+
         buttonRedMissionID.remove()
         buttonBlueMissionID.remove()
-        
-        
+
+        // arrest 
+        buttonArrestID.addEventListener("click", () =>{
+            adventureTitleID.textContent = adventureLevelThreeBlueTitle;
+            adventureQuestionID.textContent = questionLevelThreeArrestQuestion;
+
+            missionButton.appendChild(again);
+            const buttonAgainID = document.getElementById("again")
+
+            buttonArrestID.remove();
+
+            buttonAgainID.addEventListener("click", () =>{
+                location.reload();
+        })
     })
 
     redMission.addEventListener("mouseenter", () => {
@@ -167,13 +185,4 @@ buttonGoID.addEventListener("click", () => {
     });
 
 })
-
-
-
-
-
-
-
-
-
-
+})
