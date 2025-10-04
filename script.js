@@ -76,7 +76,40 @@ buttonGoID.addEventListener("click", () => {
     
     // Remove the "Go!" button from the DOM since it is going to the next level.
     buttonGoID.remove();
+    
+    /* The following code adds an effect to the task button. 
+    When the mouse moves over the button, the task details 
+    are displayed on the main interface. When the mouse moves 
+    away, the original information is displayed. 
+    The gold coin is also highlighted to make it more "golden". */
 
+    // red  button hover 
+    redMission.addEventListener("mouseenter", () => {
+        // Save the text before hover
+        const tempText = adventureQuestionID.innerHTML;
+        // Modify the displayed text
+        adventureQuestionID.innerHTML = `A husband wants you to find him a crystal as a 
+        gift for his wife for their wedding anniversary.<br>
+        He is willing to pay you <span class="gold">three gold coins</span>.`;
+    
+    redMission.addEventListener("mouseleave", function leaveHandler() {
+        // Restore the text before hover
+        adventureQuestionID.innerHTML = tempText;
+    });
+    });
+
+    // Blue button hover 
+    blueMission.addEventListener("mouseenter", () => {
+        const tempText = adventureQuestionID.innerHTML;
+        adventureQuestionID.innerHTML = `A drunk squirrel takes out 
+        <span class="gold">two gold coins </span>
+        and asks you to go to the woods to collect acorns for the winter.<br>
+         Then he falls drunkenly on the table and starts snoring.`;
+
+        blueMission.addEventListener("mouseleave", function leaveHandler() {
+            adventureQuestionID.innerHTML = tempText;
+        });
+    });
     // Level 2 Red Mission
     buttonRedMissionID.addEventListener("click", () =>{
         adventureTitleID.textContent = adventureLevelTwoRedTitle;
@@ -164,39 +197,7 @@ buttonGoID.addEventListener("click", () => {
         })
     })
 
-    /* The following code adds an effect to the task button. 
-    When the mouse moves over the button, the task details 
-    are displayed on the main interface. When the mouse moves 
-    away, the original information is displayed. 
-    The gold coin is also highlighted to make it more "golden". */
 
-    // red  button hover 
-    redMission.addEventListener("mouseenter", () => {
-        // Save the text before hover
-        const tempText = adventureQuestionID.innerHTML;
-        // Modify the displayed text
-        adventureQuestionID.innerHTML = `A husband wants you to find him a crystal as a 
-        gift for his wife for their wedding anniversary.<br>
-        He is willing to pay you <span class="gold">three gold coins</span>.`;
-    
-    redMission.addEventListener("mouseleave", function leaveHandler() {
-        // Restore the text before hover
-        adventureQuestionID.innerHTML = tempText;
-    });
-    });
-
-    // Blue button hover 
-    blueMission.addEventListener("mouseenter", () => {
-        const tempText = adventureQuestionID.innerHTML;
-        adventureQuestionID.innerHTML = `A drunk squirrel takes out 
-        <span class="gold">two gold coins </span>
-        and asks you to go to the woods to collect acorns for the winter.<br>
-         Then he falls drunkenly on the table and starts snoring.`;
-
-        blueMission.addEventListener("mouseleave", function leaveHandler() {
-            adventureQuestionID.innerHTML = tempText;
-        });
-    });
 
 })
 })
